@@ -59,6 +59,7 @@ jobs:
 
           git commit -m "chore: render timoni manifests"
 
-      - name: Push changes
+      - name: Sync changes
         run: |
+          git pull origin main
           git push origin HEAD:main
