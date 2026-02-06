@@ -32,7 +32,7 @@ jobs:
           echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
           brew install stefanprodan/tap/timoni
-          cp /home/linuxbrew/.linuxbrew/bin/timoni /bin
+          sudo cp /home/linuxbrew/.linuxbrew/bin/timoni /bin
           timoni version
 
       - name: Render manifests using Timoni
