@@ -2,4 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - generated-manifest.yaml
+- generated-manifest.yaml
+images:
+- name: nginx
+  newName: nginx
+  newTag: db8058c
