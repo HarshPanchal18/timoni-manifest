@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
 - generated-manifest.yaml
 images:
-- name: nginx
-  newName: nginx
+- name: cgr.dev/chainguard/nginx
+  newName: cgr.dev/chainguard/nginx
   newTag: 6747c95
