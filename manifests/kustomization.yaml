@@ -6,4 +6,4 @@ resources:
 images:
 - name: nginx
   newName: nginx
-  newTag: 4e8bf3e
+  newTag: 6747c95
