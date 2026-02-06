@@ -7,3 +7,6 @@ images:
 - name: cgr.dev/chainguard/nginx
   newName: cgr.dev/chainguard/nginx
   newTag: 6747c95
+- name: nginx
+  newName: nginx
+  newTag: 5c50587
