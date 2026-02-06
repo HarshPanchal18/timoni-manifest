@@ -23,13 +23,19 @@ jobs:
 
       - name: Install Timoni
         run: |
-          curl -fsSL https://get.timoni.sh | bash
-          sudo mv timoni /usr/local/bin/timoni
+          # Download and install brew
+          curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+          /bin/bash install.sh CI=1
+          test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+          test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+
+          # Install timoni
+          brew install stefanprodan/tap/timoni
           timoni version
 
       - name: Render manifests using Timoni
         run: |
-          mkdir -p manifests
           timoni build myapp ./timoni \
             --namespace default \
             --values ./timoni/values.cue \
