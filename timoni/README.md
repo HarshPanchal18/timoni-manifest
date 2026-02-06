@@ -83,3 +83,8 @@ values: {
 	}
 }
 ```
+
+```bash
+# yq e -n '.values.image.digest = "fjn34vc"' -oyaml > image-values.yaml
+# yq e -n '.values.image.digest = "fjn34vc"' > image-values.yaml
+```
