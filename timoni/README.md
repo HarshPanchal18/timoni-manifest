@@ -84,6 +84,8 @@ values: {
 }
 ```
 
+Multiple commands to update image digest
+
 ```bash
 # yq e -n '.values.image.digest = "fjn34vc"' -oyaml > image-values.yaml
 # yq e -n '.values.image.digest = "fjn34vc"' > image-values.yaml
