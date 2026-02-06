@@ -33,8 +33,6 @@ jobs:
           echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
           rm install.sh
 
-      - name: Install Timoni
-        run: |
           brew install stefanprodan/tap/timoni
           sudo cp /home/linuxbrew/.linuxbrew/bin/timoni /bin
           timoni version
