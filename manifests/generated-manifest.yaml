@@ -9,6 +9,25 @@ metadata:
   namespace: default
 ---
 apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: timoni
+    app.kubernetes.io/name: myapp
+    app.kubernetes.io/version: 0.0.0-devel
+  name: myapp
+  namespace: default
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app.kubernetes.io/name: myapp
+  type: ClusterIP
+---
+apiVersion: v1
 data:
   index.html: "<!doctype html>\n<html lang=\"en\">\n<head>\n \t<meta charset=\"utf-8\">\n
     \t<meta http-equiv=\"refresh\" content=\"10\" />\n\t<title>myapp</title>\n\t<style>\n\thtml
@@ -32,25 +51,6 @@ metadata:
   name: myapp-11ec3aef
   namespace: default
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app.kubernetes.io/managed-by: timoni
-    app.kubernetes.io/name: myapp
-    app.kubernetes.io/version: 0.0.0-devel
-  name: myapp
-  namespace: default
-spec:
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: http
-  selector:
-    app.kubernetes.io/name: myapp
-  type: ClusterIP
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -71,7 +71,7 @@ spec:
         app.kubernetes.io/name: myapp
     spec:
       containers:
-      - image: cgr.dev/chainguard/nginx:6747c95
+      - image: cgr.dev/chainguard/nginx:1.25.3@def
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -120,3 +120,4 @@ spec:
             path: index.html
           name: myapp-11ec3aef
         name: html
+---
