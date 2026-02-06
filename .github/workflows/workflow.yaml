@@ -25,7 +25,7 @@ jobs:
         run: |
           # Download and install brew
           curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-          /bin/bash install.sh NONINTERACTIVE
+          /bin/bash CI=1 install.sh
           test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
           test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
