@@ -52,7 +52,7 @@ import (
 
 	// The number of pods replicas.
 	// By default, the number of replicas is 1.
-	replicas: *1 | int & >0
+	replicas: *2 | int & >0
 
 	// The securityContext allows setting the container security context.
 	// By default, the container is denined privilege escalation.
