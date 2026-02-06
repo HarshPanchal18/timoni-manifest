@@ -40,14 +40,14 @@ jobs:
           timoni build myapp ./timoni \
             --namespace default \
             --values ./timoni/values.cue \
-            > ../manifests/myapp.yaml
+            > ./manifests/generated-manifest.yaml
 
       - name: Commit rendered manifests
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add ../manifests/myapp.yaml
+          git add .
 
           # If no changes, do nothing
           if git diff --cached --quiet; then
