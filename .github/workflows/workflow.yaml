@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Timoni
+      - name: Install brew
         run: |
           # Download and install brew
           curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
@@ -31,12 +31,15 @@ jobs:
           test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
+      - name: Install Timoni
+        run: |
           # Install timoni
           brew install stefanprodan/tap/timoni
           timoni version
 
       - name: Render manifests using Timoni
         run: |
+          mkdir -p ./manifests
           timoni build myapp ./timoni \
             --namespace default \
             --values ./timoni/values.cue \
