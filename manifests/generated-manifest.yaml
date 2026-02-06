@@ -71,7 +71,7 @@ spec:
         app.kubernetes.io/name: myapp
     spec:
       containers:
-      - image: cgr.dev/chainguard/nginx:1.25.3@def
+      - image: cgr.dev/chainguard/nginx:1.25.3@fed3fd8
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
