@@ -1,6 +1,6 @@
 bundle: {
 	apiVersion: "v1alpha1"
-	name:       _appName
+	name:       "my-timoni-bundle-app"
 	instances: {
 		redis: {
 			module: {
