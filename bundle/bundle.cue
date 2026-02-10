@@ -5,14 +5,14 @@ bundle: {
 		redis: {
 			module: {
 				url:     "oci://ghcr.io/stefanprodan/modules/redis"
-				version: "7.2.3"
+				version: "7.2.4"
 			}
 			namespace: "timoni-bundle"
 			values: maxmemory: 256
 		}
 		podinfo: {
 			module: url:     "oci://ghcr.io/stefanprodan/modules/podinfo"
-			module: version: "6.5.4"
+			module: version: "6.10.0"
 			namespace: "timoni-bundle"
 			values: caching: {
 				enabled:  true
