@@ -31,7 +31,7 @@ import (
 						ports: [
 							{
 								name:          "http"
-								containerPort: 8080
+								containerPort: 8081
 								protocol:      "TCP"
 							},
 						]
