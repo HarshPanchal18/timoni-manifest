@@ -79,7 +79,7 @@ spec:
             port: http
         name: myapp
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
           name: http
           protocol: TCP
         readinessProbe:
